@@ -293,14 +293,5 @@ document.addEventListener('keydown', (e) => {
     }
   }
 
-  // Add this to your existing script area
-document.addEventListener('DOMContentLoaded', () => {
-  const currentLang = localStorage.getItem('tz-lang');
-  if (currentLang === 'sw') {
-    document.body.classList.add('lang-sw');
-  } else {
-    document.body.classList.remove('lang-sw');
-  }
-});
 
 });
