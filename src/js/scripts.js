@@ -269,6 +269,14 @@ document.addEventListener('keydown', (e) => {
 
   // Restore saved language on page load
   const savedLang = localStorage.getItem('tz-lang') || 'en';
+  
+  //added this to ensure the body class resizes appropiate to avoid overflow issues with the nav when swahili is selected
+  if (savedLang === 'sw') {
+    document.body.classList.add('lang-sw');
+  } else {
+      document.body.classList.remove('lang-sw');
+    }
+
   document.querySelectorAll('#lang-switcher, [aria-label*="language"]').forEach(sel => {
     if (sel.tagName === 'SELECT') {
       sel.value = savedLang;
@@ -284,5 +292,15 @@ document.addEventListener('keydown', (e) => {
       document.cookie = `googtrans=/en/sw; path=/; domain=.${location.hostname}`;
     }
   }
+
+  // Add this to your existing script area
+document.addEventListener('DOMContentLoaded', () => {
+  const currentLang = localStorage.getItem('tz-lang');
+  if (currentLang === 'sw') {
+    document.body.classList.add('lang-sw');
+  } else {
+    document.body.classList.remove('lang-sw');
+  }
+});
 
 });

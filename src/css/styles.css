@@ -22,6 +22,15 @@ html {
   border-radius: 4px;
 }
 
+/* ─── Hide the Google Translate toolbar frame ─── */
+.goog-te-banner-frame.skiptranslate, 
+.goog-te-gadget-icon,
+.VIpgJd-ZVi9od-ORHb-OEVmcd { 
+    display: none !important; 
+    
+}
+
+
 /* ─── Page Entrance Animation ─── */
 body {
   animation: pageEntrance 0.5s ease forwards;
@@ -72,7 +81,6 @@ body {
   box-shadow: 0 1px 0 rgba(26, 71, 49, 0.08), 0 4px 24px rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid rgba(26, 71, 49, 0.06);
 }
-
 /* ─── Mobile drawer ─── */
 #mobile-drawer {
   transform: translateX(-100%);
@@ -95,6 +103,7 @@ body {
 /* ─── Active nav link ─── */
 .nav-link {
   position: relative;
+  white-space: nowrap; /* 1. Prevent the link from breaking into two lines in Swahili */
 }
 .nav-link::after {
   content: '';
@@ -114,6 +123,20 @@ body {
 .nav-link.active-nav {
   color: #C8903A !important;
   font-weight: 600;
+}
+
+/* ─── since translating to swahili makes the nav links longer, made some adjustments to prevent the logo and right side from being pushed out of place ─── */
+
+.lang-sw .nav-link {
+  font-size: 0.85rem !important; /* Smaller text only for Swahili */
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+/* ─── Hero section padding adjustment for better visual balance for swahili translation─── */
+#hero {
+  
+  padding-top: 200px !important; 
 }
 
 /* ─── Hero gradient — animated subtle shift ─── */
